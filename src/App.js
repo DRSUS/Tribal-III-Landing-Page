@@ -1,41 +1,27 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import './App.css';
+import './responsive-styles.css'
+import Home from './home'
+import Live from './live'
+import Login from './login'
+import Submit from './submit'
+import Notfound from './notfound'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 
-
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-        <h1>TRIBAL<br/>NETWORK</h1>
-        <h2>The Network for the modern entertainer</h2>
-
-
-        <div style={{margin: '500px auto 400px'}} className="navigation">
-        <div>
-        <button style={{cursor: 'pointer'}} class='button'>LIVE</button>
-        </div>
-
-        <div>
-        <button style={{cursor: 'pointer'}} class='button'>Log In</button>
-        </div>
-
-        <div>
-        <button as={Link} to={'/'} style={{cursor: 'pointer'}} className="button">Submit</button>
-        </div>
-        </div>
-        
-        
-        </p>
-      </header>
-    </div>
-
-  );
-
+const App = () => {
+  return(
+    
+      <Router>
+        <Switch>
+        <Route exact path="/" component={Home}/>
+        <Route path="/live" component={Live}/>
+        <Route path="/login" component={Login}/>
+        <Route exact path="/submit" component={Submit}/>
+        <Route component={Notfound}/>
+        </Switch>
+      </Router>
+  )
 }
 
-
-export default App;
+export default App
